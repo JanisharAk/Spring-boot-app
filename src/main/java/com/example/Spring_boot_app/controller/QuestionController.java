@@ -1,33 +1,31 @@
 package com.example.Spring_boot_app.controller;
 
+import com.example.Spring_boot_app.dto.QuestionDto;
+import com.example.Spring_boot_app.dto.RestServiceResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api")
 public class QuestionController {
-    @GetMapping("api/v1/greeting")
-    public String greeting() {
-        return "Hello World";
-    }
-    @GetMapping("api/v1")
-    public String getQuestion(){
-        return null;
-    }
 
-    @PostMapping("api/v2")
-    public String saveQuestion(){
+    @GetMapping("api/v1")
+    public ResponseEntity<RestServiceResponse> getQuestionID(@PathVariable String id){
         return null;
     }
 
     @DeleteMapping("api/v3")
-    public String deleteQuestion(){
+    public ResponseEntity<RestServiceResponse> deleteQuestion(@PathVariable String id){
+        return null;
+    }
+
+    @PostMapping("api/v2")
+    public ResponseEntity<RestServiceResponse> saveQuestion(@PathVariable QuestionDto questionDto){
         return null;
     }
 
     @GetMapping("api/v4")
-    public String searchQuestion(){
+    public ResponseEntity<RestServiceResponse> searchQuestion(){
         return null;
     }
-
-
 }
