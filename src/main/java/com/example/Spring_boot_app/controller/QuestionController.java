@@ -6,26 +6,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api")
-public class QuestionController {
+@RequestMapping("api/v1/question")
+public class QuestionController extends BaseController  {
 
-    @GetMapping("api/v1")
+    @GetMapping("{id}")
     public ResponseEntity<RestServiceResponse> getQuestionID(@PathVariable String id){
-        return null;
+        return ResponseEntity.ok().body(getSuccessResponse("Fetched Successfully"));
     }
 
-    @DeleteMapping("api/v3")
+    @DeleteMapping("{id}")
     public ResponseEntity<RestServiceResponse> deleteQuestion(@PathVariable String id){
-        return null;
+        return ResponseEntity.ok().body(getSuccessResponse("Deleted Successfully"));
     }
 
-    @PostMapping("api/v2")
+    @PostMapping(consumes = "application/json")
     public ResponseEntity<RestServiceResponse> saveQuestion(@PathVariable QuestionDto questionDto){
-        return null;
+        return ResponseEntity.ok().body(getSuccessResponse("Saved Successfully"));
     }
 
-    @GetMapping("api/v4")
+    @PostMapping(value = "/serach", consumes = "application/json")
     public ResponseEntity<RestServiceResponse> searchQuestion(){
-        return null;
+        return ResponseEntity.ok().body(getSuccessResponse("Search Successfully"));
     }
 }
